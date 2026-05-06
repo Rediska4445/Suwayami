@@ -11,11 +11,10 @@
 using System;
 using System.Reflection;
 
-[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("82f65117-821b-4ebd-9ab4-23767a57d103")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("Suwayami")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e37c95a5e9172b33d10a739699e58cd1d35a0da4")]
 [assembly: System.Reflection.AssemblyProductAttribute("Suwayami")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Suwayami")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

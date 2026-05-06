@@ -1,11 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using laboratory_4.Context;
 using laboratory_4.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Data.Entity;
+using Suwayami.DTO;
 
 namespace laboratory_4.Controllers
 {
@@ -21,46 +19,74 @@ namespace laboratory_4.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Author>>> GetAuthors()
+        public async Task<ActionResult<IEnumerable<AuthorDto>>> GetAuthors()
         {
-            return await _context.Authors
-                .Include(a => a.Books)
+            var authors = await _context.Authors
+                .Select(a => new AuthorDto
+                {
+                    AuthorId = a.AuthorId,
+                    FullName = a.FullName
+                })
                 .ToListAsync();
+
+            return Ok(authors);
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Author>> GetAuthor(int id)
+        public async Task<ActionResult<AuthorDto>> GetAuthor(int id)
         {
             var author = await _context.Authors
-                .Include(a => a.Books)
-                .FirstOrDefaultAsync(a => a.AuthorId == id);
+                .Where(a => a.AuthorId == id)
+                .Select(a => new AuthorDto
+                {
+                    AuthorId = a.AuthorId,
+                    FullName = a.FullName
+                })
+                .FirstOrDefaultAsync();
 
             if (author == null)
                 return NotFound();
 
-            return author;
+            return Ok(author);
         }
 
         [HttpPost]
-        public async Task<ActionResult<Author>> PostAuthor(Author author)
+        public async Task<ActionResult<AuthorDto>> PostAuthor(AuthorCreateDto dto)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
+
+            var author = new Author
+            {
+                FullName = dto.FullName
+            };
 
             _context.Authors.Add(author);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetAuthor), new { id = author.AuthorId }, author);
+            var resultDto = new AuthorDto
+            {
+                AuthorId = author.AuthorId,
+                FullName = author.FullName
+            };
+
+            return CreatedAtAction(nameof(GetAuthor), new { id = author.AuthorId }, resultDto);
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutAuthor(int id, Author author)
+        public async Task<IActionResult> PutAuthor(int id, AuthorUpdateDto dto)
         {
-            if (id != author.AuthorId)
+            if (id != dto.AuthorId)
                 return BadRequest();
 
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
+
+            var author = await _context.Authors.FindAsync(id);
+            if (author == null)
+                return NotFound();
+
+            author.FullName = dto.FullName;
 
             _context.Entry(author).State = EntityState.Modified;
 

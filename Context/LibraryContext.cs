@@ -7,9 +7,9 @@ namespace laboratory_4.Context
 {
     public class LibraryContext : DbContext
     {
-        public LibraryContext() : base("Server=(LocalDB)\\local;Initial Catalog=Library;Integrated Security=True;TrustServerCertificate=True")
+        public LibraryContext() : base("Server=(LocalDB)\\MSSQLLocalDB;Initial Catalog=Library;Integrated Security=True;TrustServerCertificate=True")
         {
-
+            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<LibraryContext>());
         }
 
         public DbSet<Author> Authors { get; set; }
