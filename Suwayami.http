@@ -1,0 +1,6 @@
+@Suwayami_HostAddress = http://localhost:5110
+
+GET {{Suwayami_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

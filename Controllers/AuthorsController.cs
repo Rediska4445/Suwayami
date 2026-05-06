@@ -20,7 +20,6 @@ namespace laboratory_4.Controllers
             _context = context;
         }
 
-        // GET: api/authors
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Author>>> GetAuthors()
         {
@@ -29,7 +28,6 @@ namespace laboratory_4.Controllers
                 .ToListAsync();
         }
 
-        // GET: api/authors/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Author>> GetAuthor(int id)
         {
@@ -43,7 +41,6 @@ namespace laboratory_4.Controllers
             return author;
         }
 
-        // POST: api/authors
         [HttpPost]
         public async Task<ActionResult<Author>> PostAuthor(Author author)
         {
@@ -56,7 +53,6 @@ namespace laboratory_4.Controllers
             return CreatedAtAction(nameof(GetAuthor), new { id = author.AuthorId }, author);
         }
 
-        // PUT: api/authors/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutAuthor(int id, Author author)
         {
@@ -83,7 +79,6 @@ namespace laboratory_4.Controllers
             return NoContent();
         }
 
-        // DELETE: api/authors/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAuthor(int id)
         {
@@ -93,8 +88,6 @@ namespace laboratory_4.Controllers
 
             if (author.Books != null && author.Books.Any())
             {
-                // либо запретить удаление, пока есть книги,
-                // либо поставить каскадный DELETE в базе
                 return BadRequest("Cannot delete author with existing books.");
             }
 
