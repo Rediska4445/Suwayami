@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Suwayami")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b44022ac6689f4ad86aae126c5b02596ed85ce5f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a35a0da4770fd1b52d151d524372c5fdd029ba44")]
 [assembly: System.Reflection.AssemblyProductAttribute("Suwayami")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Suwayami")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
