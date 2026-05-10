@@ -1,7 +1,7 @@
 using laboratory_4.Context;
 using Serilog;
 using Suwayami.Service;
-using Suwayami;
+using Microsoft.Extensions.Caching.Memory;
 
 var configBuilder = new ConfigurationBuilder()
     .SetBasePath(Directory.GetCurrentDirectory())
@@ -27,6 +27,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<LibraryContext>();
 builder.Services.AddHostedService<MyBackgroundService>();
+builder.Services.AddMemoryCache();
 
 builder.Host.UseSerilog();
 

@@ -1,7 +1,5 @@
 ﻿using laboratory_4.Entity;
-using System.Collections.Generic;
 using System.Data.Entity;
-using System.Linq;
 
 namespace laboratory_4.Context
 {
@@ -10,6 +8,8 @@ namespace laboratory_4.Context
         public LibraryContext() : base("Server=(LocalDB)\\MSSQLLocalDB;Initial Catalog=Library;Integrated Security=True;TrustServerCertificate=True")
         {
             Database.SetInitializer(new DropCreateDatabaseIfModelChanges<LibraryContext>());
+
+            Database.Log = Console.WriteLine;
         }
 
         public DbSet<Author> Authors { get; set; }

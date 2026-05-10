@@ -127,7 +127,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "laboratory_4.Controllers.BooksController",
+    "ContainingType": "laboratory_4.Controllers.laboratory_4.Controllers.BooksController",
     "Method": "GetBooks",
     "RelativePath": "api/Books",
     "HttpMethod": "GET",
@@ -147,7 +147,7 @@
     ]
   },
   {
-    "ContainingType": "laboratory_4.Controllers.BooksController",
+    "ContainingType": "laboratory_4.Controllers.laboratory_4.Controllers.BooksController",
     "Method": "PostBook",
     "RelativePath": "api/Books",
     "HttpMethod": "POST",
@@ -173,7 +173,7 @@
     ]
   },
   {
-    "ContainingType": "laboratory_4.Controllers.BooksController",
+    "ContainingType": "laboratory_4.Controllers.laboratory_4.Controllers.BooksController",
     "Method": "GetBook",
     "RelativePath": "api/Books/{id}",
     "HttpMethod": "GET",
@@ -199,7 +199,7 @@
     ]
   },
   {
-    "ContainingType": "laboratory_4.Controllers.BooksController",
+    "ContainingType": "laboratory_4.Controllers.laboratory_4.Controllers.BooksController",
     "Method": "PutBook",
     "RelativePath": "api/Books/{id}",
     "HttpMethod": "PUT",
@@ -220,7 +220,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "laboratory_4.Controllers.BooksController",
+    "ContainingType": "laboratory_4.Controllers.laboratory_4.Controllers.BooksController",
     "Method": "DeleteBook",
     "RelativePath": "api/Books/{id}",
     "HttpMethod": "DELETE",
@@ -236,7 +236,27 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "laboratory_4.Controllers.BooksController",
+    "ContainingType": "laboratory_4.Controllers.laboratory_4.Controllers.BooksController",
+    "Method": "GetAuthors",
+    "RelativePath": "api/Books/authors",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Suwayami.DTO.AuthorDto, Suwayami, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "laboratory_4.Controllers.laboratory_4.Controllers.BooksController",
     "Method": "GetBooksByAuthor",
     "RelativePath": "api/Books/byauthor",
     "HttpMethod": "GET",
@@ -252,6 +272,26 @@
     "ReturnTypes": [
       {
         "Type": "System.Collections.Generic.IEnumerable\u00601[[Suwayami.DTO.BookDto, Suwayami, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "laboratory_4.Controllers.laboratory_4.Controllers.BooksController",
+    "Method": "GetGenres",
+    "RelativePath": "api/Books/genres",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Suwayami.DTO.GenreDto, Suwayami, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
